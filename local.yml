@@ -14,4 +14,13 @@
           # - elixir/erlang
           # - nodejs
 
-      # apt: name=ripgrep
+    # - name: copy wallpaper file
+    #   copy:
+    #     src: files/wallpaper.png
+    #     dest: /usr/share/backgrounds/ansible-wallpaper.png
+    #     owner: root
+    #     group: root
+    #     mode: 0644
+
+    - name: set wallpaper
+      dconf:
