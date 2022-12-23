@@ -1,5 +1,10 @@
+---
 - hosts: localhost
+  connection: local
   become: true
+
   tasks:
-  - name: Install ripgrep
-    apt: name=ripgrep
+    - name: install ripgrep
+      package:
+        name: ripgrep
+      # apt: name=ripgrep
