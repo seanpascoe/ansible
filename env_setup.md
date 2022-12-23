@@ -29,6 +29,10 @@ sudo apt install git
 
 - pull in repo
 
+### setup fdfind
+
+- to allow 'fd' command: `ln -s $(which fdfind) ~/.local/bin/fd`
+
 ### goto.sh
 
 - copy file from github

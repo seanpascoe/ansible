@@ -11,10 +11,13 @@
           - rsync
           - fzf
           - fd-find
-          # - asdf
-          # - postgres
-          # - elixir/erlang
-          # - nodejs
+        # - asdf
+        # - postgres
+        # - elixir/erlang
+        # - nodejs
+
+    - name: Create symlink from fdfind to fd
+      ansible.builtin.shell: ln -s $(which fdfind) ~/.local/bin/fd
 
     # - name: copy wallpaper file
     #   copy:
