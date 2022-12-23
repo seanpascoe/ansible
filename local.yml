@@ -4,7 +4,14 @@
   become: true
 
   tasks:
-    - name: install ripgrep
+    - name: install packages
       package:
-        name: ripgrep
+        name:
+          - ripgrep
+          - rsync
+          # - asdf
+          # - postgres
+          # - elixir/erlang
+          # - nodejs
+
       # apt: name=ripgrep
