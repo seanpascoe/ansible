@@ -9,6 +9,7 @@
         name:
           - ripgrep
           - rsync
+          - fzf
           # - asdf
           # - postgres
           # - elixir/erlang
@@ -22,5 +23,18 @@
     #     group: root
     #     mode: 0644
 
-    - name: set wallpaper
-      dconf:
+    # - name: set wallpaper
+    #   become_user: jay
+    #   dconf:
+    #     key: "/org/gnome/desktop/background/picture-uri"
+    #     value: "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
+
+    # - name: set wallpaper position
+    #   become_user: jay
+    #   dconf:
+    #     key: "/org/gnome/desktop/background/picture-options"
+    #     value: "'zoom'"
+    - name: copy .bashrc file
+      copy:
+        src: files/bashrc
+        dest: /home
