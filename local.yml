@@ -10,6 +10,7 @@
           - ripgrep
           - rsync
           - fzf
+          - fd-find
           # - asdf
           # - postgres
           # - elixir/erlang
@@ -34,7 +35,8 @@
     #   dconf:
     #     key: "/org/gnome/desktop/background/picture-options"
     #     value: "'zoom'"
-    - name: copy .bashrc file
-      copy:
-        src: files/bashrc
-        dest: /home
+
+    # - name: copy .bashrc file
+    #   copy:
+    #     src: files/bashrc
+    #     dest: /home
