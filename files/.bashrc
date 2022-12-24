@@ -117,6 +117,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# add to PATH only if directory does not already exist in PATH
+pathadd() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
 
@@ -149,14 +156,7 @@ bind -x '"\C-p": fzf-file-widget'
 #add caps lock as ctrl key
 # setxkbmap -option ctrl:nocaps
 
-# add to PATH only if directory does not already exist in PATH
-pathadd() {
-    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-        PATH="${PATH:+"$PATH:"}$1"
-    fi
-}
-
-pathadd "~/.local/bin"
+pathadd $HOME/.local/bin
 
 # asdf
 . $HOME/.asdf/asdf.sh

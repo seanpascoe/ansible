@@ -1,10 +1,11 @@
 ---
 - hosts: localhost
   connection: local
-  become: true
 
   tasks:
     - name: install packages
+      become: true
+      become_user: root
       package:
         name:
           - ripgrep
@@ -16,8 +17,27 @@
         # - elixir/erlang
         # - nodejs
 
+    - name: Create ~/.local/bin directory
+      file:
+        path: $HOME/.local/bin
+        state: directory
+
+    - name: set fdfind path as variable
+      command: which fdfind
+      register: fdfind_path
     - name: Create symlink from fdfind to fd
-      ansible.builtin.shell: ln -s $(which fdfind) ~/.local/bin/fd
+      file:
+        src: "{{ fdfind_path.stdout }}"
+        path: $HOME/.local/bin/fd
+        state: link
+    # - name: Create symlink from fdfind to fd
+    #   ansible.builtin.shell: ln -s $(which fdfind) ~/.local/bin/fd
+    #   ignore_errors: true
+
+    - name: copy .bashrc file
+      copy:
+        src: files/.bashrc
+        dest: $HOME/.bashrc
 
     # - name: copy wallpaper file
     #   copy:
@@ -38,8 +58,3 @@
     #   dconf:
     #     key: "/org/gnome/desktop/background/picture-options"
     #     value: "'zoom'"
-
-    # - name: copy .bashrc file
-    #   copy:
-    #     src: files/bashrc
-    #     dest: /home
