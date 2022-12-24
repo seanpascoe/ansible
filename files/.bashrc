@@ -162,7 +162,5 @@ pathadd $HOME/.local/bin
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
-# add yarn to path
-export PATH="$(yarn global bin):$PATH"
 
 
