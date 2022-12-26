@@ -25,18 +25,6 @@ sudo apt install git
 - git clone https://seanpascoe@github.com/seanpascoe/dotfiles.git ~/.dotfiles
 - symlink files (or maybe just copy them over and keep updated via ansible cront?)
 
-### bash-git-prompt
-
-- pull in repo
-
-### setup fdfind
-
-- to allow 'fd' command: `ln -s $(which fdfind) ~/.local/bin/fd`
-
-### goto.sh
-
-- copy file from github
-
 ### setup vscode
 
 - .deb link: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64

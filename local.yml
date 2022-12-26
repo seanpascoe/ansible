@@ -2,6 +2,17 @@
 - hosts: localhost
   connection: local
 
+  roles:
+    - role: cimon-io.asdf
+      vars:
+        asdf_user: "{{ansible_user_id}}"
+        asdf_group: "{{ansible_user_id}}"
+        asdf_version: v0.11.0
+        asdf_plugins:
+          - name: erlang
+          - name: elixir
+          - name: nodejs
+
   tasks:
     - name: install packages
       become: true
@@ -21,23 +32,53 @@
       file:
         path: $HOME/.local/bin
         state: directory
+        mode: 0755
 
     - name: set fdfind path as variable
       command: which fdfind
       register: fdfind_path
+      changed_when: false
+
     - name: Create symlink from fdfind to fd
       file:
         src: "{{ fdfind_path.stdout }}"
         path: $HOME/.local/bin/fd
         state: link
-    # - name: Create symlink from fdfind to fd
-    #   ansible.builtin.shell: ln -s $(which fdfind) ~/.local/bin/fd
-    #   ignore_errors: true
 
     - name: copy .bashrc file
       copy:
         src: files/.bashrc
         dest: $HOME/.bashrc
+        mode: 0644
+
+    - name: clone git bash prompt
+      git:
+        repo: https://github.com/magicmonty/bash-git-prompt.git
+        dest: $HOME/.bash-git-prompt
+        depth: 1
+        version: 2.7.1
+
+    - name: clone goto.sh
+      git:
+        repo: https://github.com/iridakos/goto.git
+        dest: $HOME/.goto
+        depth: 1
+        version: v2.0.0
+
+    # - name: install asdf
+    #   vars:
+    #     asdf_plugins:
+    #       - name: erlang
+    #       - name: elixir
+    #       - name: nodejs
+    #   roles:
+    #     -   asdf
+
+    # - name: clone asdf
+    #   git:
+    #     repo: https://github.com/asdf-vm/asdf.git
+    #     dest: $HOME/.asdf
+    #     version: v0.11.0
 
     # - name: copy wallpaper file
     #   copy:

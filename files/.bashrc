@@ -130,7 +130,7 @@ source ~/.bash-git-prompt/gitprompt.sh
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-source ~/scripts/goto.sh
+source ~/.goto/goto.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND="fd --type f --hidden"
