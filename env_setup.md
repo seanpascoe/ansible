@@ -24,8 +24,3 @@ sudo apt install git
 
 - git clone https://seanpascoe@github.com/seanpascoe/dotfiles.git ~/.dotfiles
 - symlink files (or maybe just copy them over and keep updated via ansible cront?)
-
-### setup vscode
-
-- .deb link: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
-- setup settings sync
