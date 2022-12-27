@@ -3,6 +3,7 @@
   connection: local
 
   roles:
+    - role: gantsign.visual-studio-code
     - role: cimon-io.asdf
       vars:
         asdf_user: "{{ansible_user_id}}"
@@ -23,10 +24,7 @@
           - rsync
           - fzf
           - fd-find
-        # - asdf
-        # - postgres
-        # - elixir/erlang
-        # - nodejs
+          - postgresql
 
     - name: Create ~/.local/bin directory
       file:
@@ -64,21 +62,6 @@
         dest: $HOME/.goto
         depth: 1
         version: v2.0.0
-
-    # - name: install asdf
-    #   vars:
-    #     asdf_plugins:
-    #       - name: erlang
-    #       - name: elixir
-    #       - name: nodejs
-    #   roles:
-    #     -   asdf
-
-    # - name: clone asdf
-    #   git:
-    #     repo: https://github.com/asdf-vm/asdf.git
-    #     dest: $HOME/.asdf
-    #     version: v0.11.0
 
     # - name: copy wallpaper file
     #   copy:
