@@ -20,11 +20,13 @@
       become_user: root
       package:
         name:
+          - git
           - ripgrep
           - rsync
           - fzf
           - fd-find
           - postgresql
+          - syncthing
 
     - name: Create ~/.local/bin directory
       file:

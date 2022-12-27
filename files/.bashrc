@@ -132,7 +132,7 @@ export EDITOR="$VISUAL"
 
 source ~/.goto/goto.sh
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/doc/fzf/examples/key-bindings.bash
 export FZF_DEFAULT_COMMAND="fd --type f --hidden"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d"
@@ -151,7 +151,7 @@ _fzf_compgen_dir() {
 }
 
 # map ctrl-p to fzf file finder
-bind -x '"\C-p": fzf-file-widget'
+# bind -x '"\C-p": fzf-file-widget'
 
 #add caps lock as ctrl key
 # setxkbmap -option ctrl:nocaps

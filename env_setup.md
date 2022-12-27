@@ -19,8 +19,3 @@ sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install git
 ```
-
-### dotfiles
-
-- git clone https://seanpascoe@github.com/seanpascoe/dotfiles.git ~/.dotfiles
-- symlink files (or maybe just copy them over and keep updated via ansible cront?)
