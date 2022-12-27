@@ -23,7 +23,6 @@
           - git
           - ripgrep
           - rsync
-          - fzf
           - fd-find
           - postgresql
           - syncthing
@@ -83,6 +82,16 @@
         depth: 1
         version: v2.0.0
 
+    - name: clone fzf
+      git:
+        repo: https://github.com/junegunn/fzf.git
+        dest: $HOME/.fzf
+        depth: 1
+        version: master
+
+    - name: install fzf
+      command: $HOME/.fzf/install
+      changed_when: false
     # - name: copy wallpaper file
     #   copy:
     #     src: files/wallpaper.png
