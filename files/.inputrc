@@ -1,12 +1,12 @@
 $include /etc/inputrc
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-@REM "\C-p":history-search-backward
-@REM "\C-n":history-search-forward
+#"\e[A": history-search-backward
+# "\e[B": history-search-forward
+# "\C-p":history-search-backward
+# "\C-n":history-search-forward
 
 set colored-stats On
 set completion-ignore-case On
-set completion-prefix-display-length 3
+# set completion-prefix-display-length 3
 set mark-symlinked-directories On
 set show-all-if-ambiguous On
 set show-all-if-unmodified On
