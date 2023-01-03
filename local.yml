@@ -28,6 +28,7 @@
           - fd-find
           - postgresql
           - ansible-lint
+          - libfuse2 # for running AppImage files (logseq)
 
     - name: Create ~/.local/bin directory
       file:
