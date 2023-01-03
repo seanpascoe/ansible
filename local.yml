@@ -1,14 +1,8 @@
 ---
 - hosts: localhost
   connection: local
-  vars_prompt:
-    - name: os_user
-      prompt: What is your system user name?
-      private: false
-
-    - name: os_group
-      prompt: What is your system user group?
-      private: false
+  vars_files:
+    - vars/env.yaml
 
   roles:
     - role: gantsign.visual-studio-code
@@ -104,6 +98,10 @@
     - import_tasks: ./tasks/install_chrome.yml
 
     - import_tasks: ./tasks/install_syncthing.yml
+
+    - import_tasks: ./tasks/install_github-cli.yml
+
+    - import_tasks: ./tasks/install_logseq.yml
 
     # - name: copy wallpaper file
     #   copy:

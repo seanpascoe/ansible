@@ -1,0 +1,30 @@
+- name: install/update logseq
+  shell: gh release download -R logseq/logseq -p '*.AppImage' -O ~/.local/bin/logseq --clobber
+  environment:
+    GH_TOKEN: "{{ github_token }}"
+  changed_when: false
+  tags:
+    - tag1
+
+- name: copy .desktop file
+  copy:
+    src: ../files/logseq.desktop
+    dest: $HOME/.local/share/applications/logseq.desktop
+    mode: 0644
+  tags:
+    - tag1
+
+- name: create .logseq directory
+  file:
+    path: $HOME/.logseq
+    state: directory
+  tags:
+    - tag1
+
+- name: copy logseq icon file
+  copy:
+    src: ../files/logseq_icon.png
+    dest: $HOME/.logseq/logseq_icon.png
+    mode: 0644
+  tags:
+    - tag1

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Logseq
+Terminal=false
+Type=Application
+Icon=$HOME/.logseq/logseq_icon.png
+StartupWMClass=Logseq
+Comment=A privacy-first, open-source platform for knowledge management and collaboration.
+Categories=Utility
+Exec=$HOME/.local/bin/logseq

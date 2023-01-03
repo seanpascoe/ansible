@@ -4,20 +4,21 @@
 #     name: apt-transport-https
 #     state: present
 #     update_cache: true
-- name: Add google apt signing key
+- name: Add github apt signing key
   become: true
   ansible.builtin.apt_key:
-    url: https://dl.google.com/linux/linux_signing_key.pub
+    url: "https://cli.github.com/packages/githubcli-archive-keyring.gpg"
+    keyring: /usr/share/keyrings/githubcli-archive-keyring.gpg
     state: present
 - name: Add repository into sources list
   become: true
   ansible.builtin.apt_repository:
-    repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+    repo: deb [arch=amd64 signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main
     state: present
-    filename: google-chrome
-- name: Install google-chrome-stable
+    filename: github-cli
+- name: Install github-cli
   become: true
   ansible.builtin.apt:
-    name: google-chrome-stable
+    name: gh
     state: present
     update_cache: true
