@@ -1,13 +1,21 @@
 ---
 - hosts: localhost
   connection: local
+  vars_prompt:
+    - name: os_user
+      prompt: What is your system user name?
+      private: false
+
+    - name: os_group
+      prompt: What is your system user group?
+      private: false
 
   roles:
     - role: gantsign.visual-studio-code
     - role: cimon-io.asdf
       vars:
-        asdf_user: "{{ansible_user_id}}"
-        asdf_group: "{{ansible_user_id}}"
+        asdf_user: "{{os_user}}"
+        asdf_group: "{{os_group}}"
         asdf_version: v0.11.0
         asdf_plugins:
           - name: erlang
@@ -25,7 +33,7 @@
           - rsync
           - fd-find
           - postgresql
-          - syncthing
+          - ansible-lint
 
     - name: Create ~/.local/bin directory
       file:
@@ -92,6 +100,11 @@
     - name: install fzf
       command: $HOME/.fzf/install
       changed_when: false
+
+    - import_tasks: ./tasks/install_chrome.yml
+
+    - import_tasks: ./tasks/install_syncthing.yml
+
     # - name: copy wallpaper file
     #   copy:
     #     src: files/wallpaper.png
