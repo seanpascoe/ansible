@@ -8,8 +8,8 @@
   ansible.builtin.file:
     path: ~/.local/bin/logseq
     mode: 0744
-  tags:
-    - tag1
+  # tags:
+  #   - tag1
 
 - name: copy .desktop file
   ansible.builtin.copy:
