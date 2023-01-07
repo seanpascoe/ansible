@@ -6,15 +6,15 @@
 
   roles:
     - role: gantsign.visual-studio-code
-    - role: cimon-io.asdf
-      vars:
-        asdf_user: "{{os_user}}"
-        asdf_group: "{{os_group}}"
-        asdf_version: v0.11.0
-        asdf_plugins:
-          - name: erlang
-          - name: elixir
-          - name: nodejs
+    # - role: cimon-io.asdf
+    #   vars:
+    #     asdf_user: "{{os_user}}"
+    #     asdf_group: "{{os_group}}"
+    #     asdf_version: v0.11.0
+    #     asdf_plugins:
+    #       - name: erlang
+    #       - name: elixir
+    #       - name: nodejs
 
   tasks:
     - name: install packages
@@ -29,6 +29,7 @@
           - postgresql
           - ansible-lint
           - libfuse2 # for running AppImage files (logseq)
+          - bat
 
     - name: Create ~/.local/bin directory
       file:
@@ -45,6 +46,12 @@
       file:
         src: "{{ fdfind_path.stdout }}"
         path: $HOME/.local/bin/fd
+        state: link
+
+    - name: Create symlink from batcat to bat
+      file:
+        src: /usr/bin/batcat
+        path: $HOME/.local/bin/bat
         state: link
 
     - name: copy .bashrc file
@@ -103,6 +110,8 @@
     - import_tasks: ./tasks/install_github-cli.yml
 
     - import_tasks: ./tasks/install_logseq.yml
+
+    - import_tasks: ./tasks/install_asdf.yml
 
     # - name: copy wallpaper file
     #   copy:

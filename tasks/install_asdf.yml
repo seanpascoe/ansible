@@ -1,0 +1,20 @@
+- name: clone asdf
+  git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: $HOME/.asdf
+    version: v0.10.2
+
+- name: add nodejs plugin
+  shell:
+    cmd: asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+    creates: $HOME/.asdf/plugins/nodejs
+
+- name: add erlang plugin
+  shell:
+    cmd: asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
+    creates: $HOME/.asdf/plugins/erlang
+
+- name: add elixir plugin
+  shell:
+    cmd: asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
+    creates: $HOME/.asdf/plugins/elixir
