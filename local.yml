@@ -30,6 +30,7 @@
           - ansible-lint
           - libfuse2 # for running AppImage files (logseq)
           - bat
+          - tldr
 
     - name: Create ~/.local/bin directory
       file:
