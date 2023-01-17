@@ -6,15 +6,6 @@
 
   roles:
     - role: gantsign.visual-studio-code
-    # - role: cimon-io.asdf
-    #   vars:
-    #     asdf_user: "{{os_user}}"
-    #     asdf_group: "{{os_group}}"
-    #     asdf_version: v0.11.0
-    #     asdf_plugins:
-    #       - name: erlang
-    #       - name: elixir
-    #       - name: nodejs
 
   tasks:
     - name: install packages
