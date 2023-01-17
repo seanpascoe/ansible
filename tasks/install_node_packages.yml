@@ -1,0 +1,11 @@
+- name: Install "tldr" node.js package globally.
+  community.general.npm:
+    name: tldr
+    global: true
+    state: latest
+
+- name: Install "yarn" node.js package globally.
+  community.general.npm:
+    name: yarn
+    global: true
+    state: latest
