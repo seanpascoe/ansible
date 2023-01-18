@@ -18,3 +18,8 @@
   shell:
     cmd: asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
     creates: $HOME/.asdf/plugins/elixir
+
+- name: add rust plugin
+  shell:
+    cmd: asdf plugin-add rust https://github.com/asdf-community/asdf-rust.git
+    creates: $HOME/.asdf/plugins/rust

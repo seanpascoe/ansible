@@ -1,0 +1,25 @@
+- name: install jdk
+  become: true
+  become_user: root
+  package:
+    name: default-jdk
+    state: present
+
+- name: Add dbeaver apt signing key
+  become: true
+  ansible.builtin.apt_key:
+    url: https://dbeaver.io/debs/dbeaver.gpg.key
+    keyring: /etc/apt/trusted.gpg.d/dbeaver.gpg
+    state: present
+- name: Add repository into sources list
+  become: true
+  ansible.builtin.apt_repository:
+    repo: deb https://dbeaver.io/debs/dbeaver-ce /
+    state: present
+    filename: dbeaver
+- name: Install dbeaver-ce
+  become: true
+  ansible.builtin.apt:
+    name: dbeaver-ce
+    state: present
+    update_cache: true

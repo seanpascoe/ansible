@@ -21,6 +21,7 @@
           - ansible-lint
           - libfuse2 # for running AppImage files (logseq)
           - bat
+        state: present
 
     - name: Create ~/.local/bin directory
       file:
@@ -105,6 +106,8 @@
     - import_tasks: ./tasks/install_asdf.yml
 
     - import_tasks: ./tasks/install_node_packages.yml
+
+    - import_tasks: ./tasks/install_dbeaver.yml
 
     # - name: copy wallpaper file
     #   copy:
