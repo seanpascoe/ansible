@@ -70,6 +70,13 @@
         dest: $HOME/.vimrc
         mode: 0644
 
+    - name: copy DankMono folder
+      copy:
+        src: files/DankMono
+        dest: $HOME/.local/share/fonts/
+        directory_mode: 0755
+        mode: 0644
+
     - name: clone git bash prompt
       git:
         repo: https://github.com/magicmonty/bash-git-prompt.git
