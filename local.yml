@@ -70,9 +70,9 @@
         dest: $HOME/.vimrc
         mode: 0644
 
-    - name: copy DankMono folder
+    - name: copy JetBrainsMono folder
       copy:
-        src: files/DankMono
+        src: files/JetBrainsMono
         dest: $HOME/.local/share/fonts/
         directory_mode: 0755
         mode: 0644
