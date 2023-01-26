@@ -150,6 +150,11 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
+_fzf_setup_completion path ll
+_fzf_setup_completion path la
+_fzf_setup_completion path l
+_fzf_setup_completion path bat
+
 # map ctrl-p to fzf file finder
 # bind -x '"\C-p": fzf-file-widget'
 

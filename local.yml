@@ -5,7 +5,7 @@
     - vars/env.yaml
 
   roles:
-    - role: gantsign.visual-studio-code
+    # - role: gantsign.visual-studio-code
 
   tasks:
     - name: install packages
@@ -102,9 +102,12 @@
       command: $HOME/.fzf/install
       changed_when: false
 
+    - import_tasks: ./tasks/install_vscode.yml
+
     - import_tasks: ./tasks/install_chrome.yml
 
     - import_tasks: ./tasks/install_syncthing.yml
+      tags: tag1
 
     - import_tasks: ./tasks/install_github-cli.yml
 
