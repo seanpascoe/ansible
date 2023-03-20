@@ -119,6 +119,8 @@
 
     - import_tasks: ./tasks/install_postgresql.yml
 
+    - import_tasks: ./tasks/install_docker.yml
+
     # - name: copy wallpaper file
     #   copy:
     #     src: files/wallpaper.png
