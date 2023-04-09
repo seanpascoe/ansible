@@ -21,6 +21,7 @@
           - libfuse2 # for running AppImage files (logseq)
           - bat
           - htop
+          - build-essential
         state: present
 
     - name: Create ~/.local/bin directory
