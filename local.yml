@@ -22,6 +22,7 @@
           - bat
           - htop
           - build-essential
+          - terminator
         state: present
 
     - name: Create ~/.local/bin directory
