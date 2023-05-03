@@ -23,6 +23,7 @@
           - htop
           - build-essential
           - terminator
+          - mpv
         state: present
 
     - name: Create ~/.local/bin directory
