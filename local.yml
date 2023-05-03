@@ -24,6 +24,8 @@
           - build-essential
           - terminator
           - mpv
+          - gimp
+
         state: present
 
     - name: Create ~/.local/bin directory
