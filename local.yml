@@ -25,6 +25,8 @@
           - terminator
           - mpv
           - gimp
+          - ncdu
+          - redis-tools
 
         state: present
 
